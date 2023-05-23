@@ -431,6 +431,52 @@ Deleting the user  `userName` from the group `groupName`
 
 ```   
 
+## Common Filtering Pattenrs with awk and cut
+
+``` 
+awk and cut are very powerful file filtering tools on linux
+```
+* cat is to read the file from top to bottom 
+* tac is to read the file from bottom to top 
+* tail is to read the lines from bottom to top based the number of mentioned lines ( By default, it prints the last 10 lines of a file )
+* head is to read the lines from top to bottom based the number of mentioned lines ( By default, it prints the top 10 lines of a file )
+
+### Here are common examples of head, tail cat , tac, sed and cut
+
+```
+# cat /etc/passwd               //To read a file
+# cat -n /etc/passwd            //reads and will place a serial number at the starting of every line
+# tac /etc/passwd               //To read the file from bottom to top
+
+
+# head passwd                   //reads the top 10 times
+# head -n 5 passwd              //Reads the first 5 lines
+
+# tail passwd                  //Reads the last 10 lines
+# tail -5 passwd               //Reads the last 5 lines
+```
+
+### To print the lines from specific line to line like print the lines in between 10 to 15
+```
+# sed -n -e '10,14 p' passwd         //Prints the lines from 10 to 14
+# sed -n -e '1 p' -e '10 p' passwd   //prints 1st and 10th line in the passwd file 
+# sed -n -e '9 p' /etc/passwd        //To print a specific line
+
+# cat /etc/passwd | grep login       //To find the word login
+```
+
+###To see the first field in every line of the file which has a common delimiter
+```
+# cut -d : -f1 /etc/passwd        //Will display the first field in each and every line
+If you want first and 4th field
+
+# cut -d : f1,4 /etc/passwd
+# cut -d : -f1-4  /etc/passwd     //Prints the fields from 1 to 4
+
+```
+![image](https://github.com/b54-clouddevops/Linux-Notes/assets/57979895/a3474b34-730f-4212-983a-36710a0208c1)
+
+
 # Create Directories
 
 
